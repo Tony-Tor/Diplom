@@ -1,0 +1,49 @@
+package com.example.diplom.controllers;
+
+import com.example.diplom.model.ItemMenu;
+import com.example.diplom.model.Meal;
+import com.example.diplom.service.MealService;
+import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/rest/meal", produces = MediaType.APPLICATION_JSON_VALUE)
+@PreAuthorize("hasAuthority('ADMIN')")
+public class MealRestController {
+
+    private MealService service;
+
+    public MealRestController(MealService service) {
+        this.service = service;
+    }
+
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    public Meal get(@PathVariable("id") Integer id){
+        return service.get(id);
+    }
+
+    @GetMapping("/all")
+    @PreAuthorize("hasAuthority('ADMIN') or hasAuthority('USER')")
+    public List<Meal> getAll(){
+        return service.getAll();
+    }
+
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Meal create(@RequestBody Meal obj){
+        return service.create(obj);
+    }
+
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Meal update(@PathVariable("id") Integer id, @RequestBody Meal obj){
+        return service.update(id, obj);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        service.delete(id);
+    }
+}

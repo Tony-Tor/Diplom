@@ -11,26 +11,18 @@ import com.example.diplom.model.Vote;
 import com.example.diplom.model.web.VoteTo;
 import com.example.diplom.service.RestaurantService;
 import com.example.diplom.service.UserService;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.event.annotation.BeforeTestMethod;
 import org.springframework.test.context.jdbc.Sql;
-import org.springframework.util.Assert;
 
 import java.time.Clock;
 import java.time.Instant;
@@ -43,7 +35,7 @@ import java.util.List;
 @Sql("classpath:data.sql")
 class MealControllerTests {
 
-    static Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
+    static final Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
 
     static private MealRestController controller;
 
@@ -122,7 +114,7 @@ class MealControllerTests {
 @PrepareForTest({ LocalDateTime.class })
 class RestaurantControllerTests {
 
-    static Logger logger = LoggerFactory.getLogger(RestaurantControllerTests.class);
+    static final Logger logger = LoggerFactory.getLogger(RestaurantControllerTests.class);
 
     private RestaurantRestController controller;
 
@@ -249,11 +241,6 @@ class UserControllerTests {
     @BeforeEach
     void initializeService(@Autowired UserRestController controller){
         this.controller = controller;
-    }
-
-    @Test
-    @WithMockUser(username="admin", authorities = {"USER","ADMIN"})
-    void test() {
     }
 
 }

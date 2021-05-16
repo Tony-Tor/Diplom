@@ -68,6 +68,7 @@ public class RestaurantRestController {
         return service.menuGetAll(id);
     }
 
+    @SuppressWarnings("MVCPathVariableInspection")
     @DeleteMapping(value = "/{idRest}/menu/{id}")
     public void menuDeleteById(@PathVariable("id") Integer id){
         service.menuDeleteById(id);

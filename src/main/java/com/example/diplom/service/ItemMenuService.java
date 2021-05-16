@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Service
 public class ItemMenuService implements IService<ItemMenu> {
 
-    static Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
+    static final Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
 
     private final ItemMenuRepo repo;
 
@@ -32,14 +32,13 @@ public class ItemMenuService implements IService<ItemMenu> {
     @Cacheable("restaurant_meal")
     public ItemMenu get(int id) throws NotFoundException {
         logger.info(String.format("get with id: %s", id));
-        ItemMenu obj = repo.findById(id).orElseThrow(() -> new NotFoundException(
+        return repo.findById(id).orElseThrow(() -> new NotFoundException(
                 String.format("Item menu not found by id: %d", id)));
-        return obj;
     }
 
     @Override
     public List<ItemMenu> getAll() {
-        logger.info(String.format("get All MenuItems"));
+        logger.info("get All MenuItems");
         return ((List<ItemMenu>) repo.findAll()).stream()
                 .sorted(Comparator.comparingInt(ItemMenu::getId))
                 .collect(Collectors.toList());

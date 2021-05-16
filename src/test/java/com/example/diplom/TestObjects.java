@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class TestObjects {
 
-    static Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
+    static final Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
 
     public static final Meal TEST_0_MEAL = new Meal();
     public static final Meal TEST_1_MEAL = new Meal();

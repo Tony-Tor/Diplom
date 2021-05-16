@@ -2,12 +2,10 @@ package com.example.diplom.service;
 
 import com.example.diplom.config.utils.NotFoundException;
 import com.example.diplom.model.*;
-import com.example.diplom.repository.ItemMenuRepo;
 import com.example.diplom.repository.VoteRepo;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -27,9 +25,8 @@ public class VoteService implements IService<Vote> {
     @Override
     @Cacheable("restaurant_user")
     public Vote get(int id) throws NotFoundException {
-        Vote obj = repo.findById(id).orElseThrow(() -> new NotFoundException(
+        return repo.findById(id).orElseThrow(() -> new NotFoundException(
                 String.format("Vote not found by id: %d", id)));
-        return obj;
     }
 
     @Override
@@ -40,8 +37,7 @@ public class VoteService implements IService<Vote> {
     }
 
     public Vote getByUserOrCreate(User user) {
-        Vote obj = repo.findByUser(user).orElse(new Vote());
-        return obj;
+        return repo.findByUser(user).orElse(new Vote());
     }
 
     @Override

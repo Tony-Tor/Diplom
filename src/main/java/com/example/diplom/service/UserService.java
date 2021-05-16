@@ -1,8 +1,6 @@
 package com.example.diplom.service;
 
 import com.example.diplom.config.utils.NotFoundException;
-import com.example.diplom.model.Meal;
-import com.example.diplom.model.Restaurant;
 import com.example.diplom.model.User;
 import com.example.diplom.repository.UserRepo;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,14 +28,12 @@ public class UserService implements UserDetailsService, IService<User> {
 
     @Override
     public User get(int id) throws NotFoundException {
-        User obj = repo.findById((long) id).orElseThrow(() -> new NotFoundException(
+        return repo.findById((long) id).orElseThrow(() -> new NotFoundException(
                 String.format("User not found by id: %d", id)));
-        return obj;
     }
 
     public User getByUserName(String name) throws NotFoundException {
-        User obj = repo.findByName(name);
-        return obj;
+        return repo.findByName(name);
     }
 
     @Override

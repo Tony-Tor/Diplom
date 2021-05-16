@@ -1,8 +1,6 @@
 package com.example.diplom.controllers;
 
-import com.example.diplom.model.Restaurant;
 import com.example.diplom.model.User;
-import com.example.diplom.service.RestaurantService;
 import com.example.diplom.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

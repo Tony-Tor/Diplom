@@ -1,6 +1,5 @@
 package com.example.diplom.controllers;
 
-import com.example.diplom.model.ItemMenu;
 import com.example.diplom.model.Meal;
 import com.example.diplom.service.MealService;
 import org.springframework.http.MediaType;

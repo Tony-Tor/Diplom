@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
@@ -25,12 +24,12 @@ import java.util.stream.Collectors;
 @Service
 public class RestaurantService  implements IService<Restaurant>{
 
-    static Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
+    static final Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
 
     @Autowired
     private Clock clock;
 
-    private static final LocalTime END_VOTING = LocalTime.of(11,00);
+    private static final LocalTime END_VOTING = LocalTime.of(11, 0);
 
     private final RestaurantRepo repo;
     private final UserService userService;
@@ -50,14 +49,13 @@ public class RestaurantService  implements IService<Restaurant>{
     @Cacheable("restaurants")
     public Restaurant get(int id) throws NotFoundException {
         logger.info(String.format("get with id: %s", id));
-        Restaurant obj = repo.findById(id).orElseThrow(() -> new NotFoundException(
+        return repo.findById(id).orElseThrow(() -> new NotFoundException(
                 String.format("Restaurant not found by id: %d", id)));
-        return obj;
     }
 
     @Override
     public List<Restaurant> getAll() {
-        logger.info(String.format("get All Restaurants"));
+        logger.info("get All Restaurants");
         return ((List<Restaurant>) repo.findAll()).stream()
                 .sorted(Comparator.comparingInt(Restaurant::getId))
                 .collect(Collectors.toList());
@@ -84,7 +82,7 @@ public class RestaurantService  implements IService<Restaurant>{
     }
 
     public void menuDeleteAll(int id){
-        logger.info(String.format("delete All MealItems by Restaurant"));
+        logger.info("delete All MealItems by Restaurant");
         itemMenuService.deleteAllByRestaurant(get(id));
     }
 

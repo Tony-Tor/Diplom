@@ -72,7 +72,7 @@ public class RestaurantRestController {
     }
 
     @DeleteMapping(value = "/{idRest}/menu/{id}")
-    public void menuDeleteById(@PathVariable("id") Integer id, @PathVariable String idRest){
+    public void menuDeleteById(@PathVariable("id") Integer id){
         service.menuDeleteById(id);
     }
     @DeleteMapping(value = "/{idRest}/menu")

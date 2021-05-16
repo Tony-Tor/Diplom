@@ -1,6 +1,7 @@
 package com.example.diplom.service;
 
 import com.example.diplom.config.utils.NotFoundException;
+import com.example.diplom.model.Meal;
 import com.example.diplom.model.Restaurant;
 import com.example.diplom.model.User;
 import com.example.diplom.repository.UserRepo;
@@ -9,7 +10,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserDetailsService, IService<User> {
@@ -39,7 +42,9 @@ public class UserService implements UserDetailsService, IService<User> {
 
     @Override
     public List<User> getAll() {
-        return (List<User>) repo.findAll();
+        return ((List<User>) repo.findAll()).stream()
+                .sorted(Comparator.comparingLong(User::getId))
+                .collect(Collectors.toList());
     }
 
     @Override

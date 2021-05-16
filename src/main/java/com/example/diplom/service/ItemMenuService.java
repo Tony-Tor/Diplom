@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Service
 public class ItemMenuService implements IService<ItemMenu> {
 
-    static final Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
+    static private final Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
 
     private final ItemMenuRepo repo;
 

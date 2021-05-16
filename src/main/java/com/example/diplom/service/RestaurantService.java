@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 @Service
 public class RestaurantService  implements IService<Restaurant>{
 
-    static final Logger logger = LoggerFactory.getLogger(ItemMenuService.class);
+    static final Logger logger = LoggerFactory.getLogger(RestaurantService.class);
 
     @Autowired
     private Clock clock;
@@ -41,7 +41,7 @@ public class RestaurantService  implements IService<Restaurant>{
     private final ItemMenuService itemMenuService;
     private final MealService mealService;
 
-    public RestaurantService(RestaurantRepo repo, VoteService service, UserService userService, VoteService voteService, ItemMenuService itemMenuService, MealService mealService) {
+    public RestaurantService(RestaurantRepo repo, UserService userService, VoteService voteService, ItemMenuService itemMenuService, MealService mealService) {
         this.repo = repo;
         this.userService = userService;
         this.voteService = voteService;

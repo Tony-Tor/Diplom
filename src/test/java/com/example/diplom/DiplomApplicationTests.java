@@ -11,7 +11,11 @@ import com.example.diplom.model.Vote;
 import com.example.diplom.model.web.VoteTo;
 import com.example.diplom.service.RestaurantService;
 import com.example.diplom.service.UserService;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.junit.runner.RunWith;
@@ -35,7 +39,7 @@ import java.util.List;
 @Sql("classpath:data.sql")
 class MealControllerTests {
 
-    static final Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
+    static private final Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
 
     static private MealRestController controller;
 
@@ -114,7 +118,7 @@ class MealControllerTests {
 @PrepareForTest({ LocalDateTime.class })
 class RestaurantControllerTests {
 
-    static final Logger logger = LoggerFactory.getLogger(RestaurantControllerTests.class);
+    static private final Logger logger = LoggerFactory.getLogger(RestaurantControllerTests.class);
 
     private RestaurantRestController controller;
 
@@ -236,11 +240,8 @@ class RestaurantControllerTests {
 @Sql("classpath:data.sql")
 class UserControllerTests {
 
-    private UserRestController controller;
-
     @BeforeEach
     void initializeService(@Autowired UserRestController controller){
-        this.controller = controller;
     }
 
 }

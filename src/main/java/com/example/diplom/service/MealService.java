@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @Service
 public class MealService implements IService<Meal>{
 
-    static final Logger logger = LoggerFactory.getLogger(MealService.class);
+    static private final Logger logger = LoggerFactory.getLogger(MealService.class);
 
     private final MealRepo repo;
 

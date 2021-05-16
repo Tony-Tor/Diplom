@@ -1,6 +1,11 @@
 package com.example.diplom;
 
-import com.example.diplom.model.*;
+import com.example.diplom.model.ItemMenu;
+import com.example.diplom.model.Meal;
+import com.example.diplom.model.Restaurant;
+import com.example.diplom.model.Role;
+import com.example.diplom.model.User;
+import com.example.diplom.model.Vote;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 
@@ -12,7 +17,7 @@ import java.util.Set;
 
 public class TestObjects {
 
-    static final Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
+    static private final Logger logger = LoggerFactory.getLogger(MealControllerTests.class);
 
     public static final Meal TEST_0_MEAL = new Meal();
     public static final Meal TEST_1_MEAL = new Meal();

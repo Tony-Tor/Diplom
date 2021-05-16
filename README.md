@@ -16,5 +16,7 @@ Crud commands for the application
 |----------------|---------|
 |Create a dish|curl --location --request POST 'http://localhost:8080/rest/meal' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ=' --data-raw '{"name": "bread", "description": "tasty crusty bread", "price": 200}'|
 |Update Dish|curl --location --request PUT 'http://localhost:8080/rest/meal/5' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ=' --data-raw '{"name": "bread", "description": "delicious crusty bread", "price": 200}'|
+|Delete Dish|curl --location --request DELETE 'http://localhost:8080/rest/meal/5' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|
 |Delete a restaurant menu|curl --location --request DELETE 'http://localhost:8080/rest/restaurant/1/menu' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|
 |Assign a dish to a restaurant|curl --location --request POST 'http://localhost:8080/rest/restaurant/1/menu/5' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|
+|Delete voiting|curl --location --request DELETE 'http://localhost:8080/rest/vote' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|

@@ -1,4 +1,7 @@
 # Diploma project for TopJava "Voting for a restaurant"
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/a72de07e125143a7bad0622e54dfb846)](https://app.codacy.com/gh/Tony-Tor/Diplom?utm_source=github.com&utm_medium=referral&utm_content=Tony-Tor/Diplom&utm_campaign=Badge_Grade_Settings)
+
 "Vote for a restaurant" is a Rest application that allows you to store information about restaurants and their menus. Users can vote for the restaurant they like and view the vote statistics.
 ## API
 Crud commands for the application  

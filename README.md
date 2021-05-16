@@ -1,7 +1,7 @@
 # Diploma project for TopJava "Voting for a restaurant"
 "Vote for a restaurant" is a Rest application that allows you to store information about restaurants and their menus. Users can vote for the restaurant they like and view the vote statistics.
 ## API
-Crud commands for the application 
+Crud commands for the application  
 Login: admin  
 Password: password  
 Base64: YWRtaW46cGFzc3dvcmQ=  

@@ -27,3 +27,5 @@ Base64: YWRtaW46cGFzc3dvcmQ=
 |Delete a restaurant menu|curl --location --request DELETE 'http://localhost:8080/rest/restaurant/1/menu' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|
 |Assign a dish to a restaurant|curl --location --request POST 'http://localhost:8080/rest/restaurant/1/menu/5' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|
 |Delete voiting|curl --location --request DELETE 'http://localhost:8080/rest/vote' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|
+|Add restaurant|curl --location --request POST 'http://localhost:8080/rest/restaurant/' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ=' --header 'Cookie: JSESSIONID=9FC15F326F47F92D06EB2F501BB55350' --data-raw '{"name":"Test cafe", "description":"Testing cafe", "rating":5}'|
+|Delete restaurant|curl --location --request DELETE 'http://localhost:8080/rest/restaurant/1' --header 'Content-Type: application/json' --header 'Authorization: Basic YWRtaW46cGFzc3dvcmQ='|

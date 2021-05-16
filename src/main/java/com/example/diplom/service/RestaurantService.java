@@ -1,7 +1,11 @@
 package com.example.diplom.service;
 
 import com.example.diplom.config.utils.NotFoundException;
-import com.example.diplom.model.*;
+import com.example.diplom.model.ItemMenu;
+import com.example.diplom.model.Meal;
+import com.example.diplom.model.Restaurant;
+import com.example.diplom.model.User;
+import com.example.diplom.model.Vote;
 import com.example.diplom.model.web.VoteTo;
 import com.example.diplom.repository.RestaurantRepo;
 import org.slf4j.Logger;

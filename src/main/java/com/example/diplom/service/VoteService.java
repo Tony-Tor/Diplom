@@ -1,7 +1,9 @@
 package com.example.diplom.service;
 
 import com.example.diplom.config.utils.NotFoundException;
-import com.example.diplom.model.*;
+import com.example.diplom.model.Restaurant;
+import com.example.diplom.model.User;
+import com.example.diplom.model.Vote;
 import com.example.diplom.repository.VoteRepo;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;

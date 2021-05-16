@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 
 public interface VoteRepo  extends CrudRepository<Vote, Integer> {
-    public Optional<Vote> findByUser(User user);
+    Optional<Vote> findByUser(User user);
 }

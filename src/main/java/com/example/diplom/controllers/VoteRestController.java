@@ -1,9 +1,7 @@
 package com.example.diplom.controllers;
 
-import com.example.diplom.model.Meal;
 import com.example.diplom.model.Restaurant;
 import com.example.diplom.model.Vote;
-import com.example.diplom.service.MealService;
 import com.example.diplom.service.VoteService;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,7 +15,7 @@ import java.util.Map;
 @PreAuthorize("hasAuthority('ADMIN')")
 public class VoteRestController {
 
-    private VoteService service;
+    private final VoteService service;
 
     public VoteRestController(VoteService service) {
         this.service = service;

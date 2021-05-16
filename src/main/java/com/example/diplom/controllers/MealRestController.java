@@ -14,7 +14,7 @@ import java.util.List;
 @PreAuthorize("hasAuthority('ADMIN')")
 public class MealRestController {
 
-    private MealService service;
+    private final MealService service;
 
     public MealRestController(MealService service) {
         this.service = service;

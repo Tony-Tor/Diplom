@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 @Service
 public class VoteService implements IService<Vote> {
 
-    static final Logger logger = LoggerFactory.getLogger(VoteService.class);
+    static private final Logger logger = LoggerFactory.getLogger(VoteService.class);
 
     private final VoteRepo repo;
 
